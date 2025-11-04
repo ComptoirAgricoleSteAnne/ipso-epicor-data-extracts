@@ -1,0 +1,8 @@
+source_table,source_field,transform,target_table,target_field,nullable,notes
+PRDBOM,prd_id,CAST as NVARCHAR(50),Epicor.JobHead,JobNum,NO,Clé de rapprochement projet/job
+PRDBOM,itm_id,TRIM,Epicor.JobMtl,PartNum,NO,
+PRDOPS,ops_id,CASE WHEN ops_id=145 THEN 'ShipReady' ELSE NULL END,Epicor.OpDtl,UD_ShipReady_c,YES,145 = point de contrôle expédition
+ENSTOCK,qte_alt,"COALESCE(qte_alt,0)",Epicor.PartWhse,OnHandQty,NO,Somme par itm_id/loc_id
+INVFIL,std_mtl_cost,"COALESCE(std_mtl_cost,0)",Epicor.JobMtl,MaterialCost,NO,
+INVFIL,std_lab_cost,OpsTimeMin * 210.00,Epicor.OpDtl,LaborCost,NO,Tarif interne $/h; ajuster variable
+INVFIL,last_price,PASS-THROUGH,Epicor.Part,LastCost,YES,Référence achat

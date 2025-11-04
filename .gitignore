@@ -1,0 +1,18 @@
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python / notebooks (if used for ad-hoc checks)
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+
+# Secrets (never commit)
+secrets/*.json
+*.key
+*.pem
+
+# Local tooling
+.env
+.vscode/

@@ -1,0 +1,9 @@
+
+-- utils/formatting.sql
+CREATE OR ALTER FUNCTION dbo.fn_NormalizePartNum(@p NVARCHAR(100))
+RETURNS NVARCHAR(100)
+AS
+BEGIN
+    RETURN LTRIM(RTRIM(@p));
+END
+GO
